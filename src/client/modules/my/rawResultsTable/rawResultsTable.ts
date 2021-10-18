@@ -1,8 +1,11 @@
 import { LightningElement } from 'lwc';
+import { getRawResults } from 'my/resultsFetcher';
+
 
 export default class RawResultsTable extends LightningElement {
 
     tableData = this.getData();
+    rawData = this.connectedCallback();
 
     getData() {
 
@@ -40,7 +43,12 @@ export default class RawResultsTable extends LightningElement {
     
     }
 
+    async connectedCallback() {
+        var data = await getRawResults();
+        console.log(data);
+        return data;
+        // this.data = await getRawResults();
+        // this.data = extractPlayerStats(await getRawResults());
+    }
+
 }
-
-
-
