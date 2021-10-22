@@ -44,7 +44,7 @@ export default class RawResultsTable extends LightningElement {
     }
 
     async connectedCallback() {
-        var data = await getRawResults();
+        let data = await getRawResults();
         console.log(data);
         return data;
         // this.data = await getRawResults();
